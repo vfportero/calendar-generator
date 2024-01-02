@@ -26,4 +26,9 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+@media print {
+  #app {
+    max-width: fit-content;
+  }
+}
 </style>
