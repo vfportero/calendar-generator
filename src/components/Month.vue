@@ -25,7 +25,7 @@ export default {
   props: {
     year: {
       type: Number,
-      default: 2022
+      default: 2024
     },
     month: {
       type: Number,
@@ -39,7 +39,7 @@ export default {
     }
   },
   mounted: function() {
-    this.daysInMonth = dateFns.getDaysInMonth(dateFns.toDate(this.year, this.month));
+    this.daysInMonth = new Date(this.year, this.month, 0).getDate();
     for (let day = 1; day <= this.daysInMonth; day++) {
       const dayDate = new Date(this.year, this.month - 1, day);
       const weekInMonth = dateFns.getWeekOfMonth(dayDate, {locale: 'es', weekStartsOn: 1}) - 1;
@@ -73,6 +73,7 @@ export default {
 .month {
   max-width: 896px;
   margin: 64px auto 0 auto;
+  page-break-before: always;
 }
 .day-names {
   display: grid;
